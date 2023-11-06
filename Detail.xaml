@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FlyoutCarousel"
+             x:Class="FlyoutCarousel.Detail"
+             Title="Detail">
+    <ContentPage.BindingContext>
+        <local:FlyoutPageModel/>
+    </ContentPage.BindingContext>
+    <VerticalStackLayout>
+        <CarouselView ItemsSource="{Binding FruitList}"
+                      CurrentItem="{Binding SelectedFruit}"
+                      ItemsUpdatingScrollMode="KeepItemsInView">
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Grid RowDefinitions="auto,*"
+                          ColumnDefinitions="*">
+                        <Label Text="{Binding FruitColour}"
+                               Grid.Row="0"/>
+                        <BoxView BackgroundColor="Red"
+                                 Grid.Row="1"
+                                 HeightRequest="400"/>
+                    </Grid>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+    </VerticalStackLayout>
+</ContentPage>
